@@ -53,14 +53,15 @@ public class ActivityMusic extends AppCompatActivity
             mMusicService = binder.getMusicBinder();
             mMediaPlaybackFragment.setmMusicService(mMusicService);
             iConnectActivityAndBaseSong.connectActivityAndBaseSong();
+            Boolean isPorstrait= getResources().getBoolean(R.bool.isPortrait);
 
             if(mStatus==false) {
-                if (findViewById(R.id.fragment_playback) != null) {
+                if (isPorstrait==false) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_list_song, mAllSongsFragment).commit();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_playback, mMediaPlaybackFragment).commit();
-                } else if (findViewById(R.id.fragment_list_song) != null) {
+                } else
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_list_song, mAllSongsFragment).commit();
-                }
+
             }else {
                 mSharePreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE);
                 Gson gson=new Gson();

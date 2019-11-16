@@ -80,7 +80,6 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
             });
 
             if (mMusicService != null) {
-              //  mMusicService.setmListAllSong(mSong);
                 if (mMusicService.getmNameSong().equals(mSong.get(position).getName())) {
                     holder.mStt.setText("");
                     holder.mNameSong.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
@@ -208,7 +207,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
             super(itemView);
             mConstraintLayout = itemView.findViewById(R.id.constraintLayoutItem);
             mNameSong = itemView.findViewById(R.id.text_name_song);
-            mHours = itemView.findViewById(R.id.hours);
+            mHours = itemView.findViewById(R.id.text_time);
             mStt = itemView.findViewById(R.id.text_ID);
             mMore = itemView.findViewById(R.id.image_more);
         }
